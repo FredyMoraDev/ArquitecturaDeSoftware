@@ -28,7 +28,8 @@ public class InfoComprasUIA {
 	private int cantidad;
 	private String unidad="";
 	private String codigo="";
-
+	private double total=0.0;
+	private double valorUnitario=0.0;
 	private List<InfoComprasUIA> items;
 
 
@@ -127,4 +128,11 @@ public class InfoComprasUIA {
 		return this.vendedor;
 	}
 
+	public double getTotal() {
+		return this.total;
+	}
+
+	public double getValorUnitario() {
+		return this.valorUnitario;
+	}
 }
