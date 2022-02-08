@@ -180,7 +180,7 @@ public class GestorCompras {
     }
 
 
-    public PeticionOrdenCompraModelo getPeticionOrdenCompras(int id) {
+    public Object getPeticionOrdenCompras(int id) {
         if (this.miModeloPeticionOrdenCompra == null)
             this.getPeticionOrdenCompra();
         for (int i = 0; i < this.miModeloPeticionOrdenCompra.size(); i++)
@@ -191,6 +191,6 @@ public class GestorCompras {
 
 
 
-    return null;
+    return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 }
 }//end KardexListaKClientes

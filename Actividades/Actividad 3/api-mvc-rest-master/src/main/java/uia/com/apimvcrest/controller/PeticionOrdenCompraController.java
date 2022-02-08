@@ -1,5 +1,6 @@
 package uia.com.apimvcrest.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,12 +19,14 @@ public class PeticionOrdenCompraController {
     }
 
     @GetMapping("/peticionesordencompra")
-    public ArrayList<PeticionOrdenCompraModelo> peticionordencompra(){
+    public ArrayList<PeticionOrdenCompraModelo> peticionordencompra()
+    {
         return servicioPeticionOrdenCompra.getPeticionOrdenCompra();
     }
 
     @GetMapping("/peticionordencompra/{id}")
-    public PeticionOrdenCompraModelo peticionById(@PathVariable int id){
-        return servicioPeticionOrdenCompra.getPeticionOrdenCompra(id);
+    public ResponseEntity<PeticionOrdenCompraModelo> peticionoredencompraById(@PathVariable int id)
+    {
+        return (ResponseEntity<PeticionOrdenCompraModelo>) servicioPeticionOrdenCompra.getPeticionOrdenCompra(id);
     }
 }

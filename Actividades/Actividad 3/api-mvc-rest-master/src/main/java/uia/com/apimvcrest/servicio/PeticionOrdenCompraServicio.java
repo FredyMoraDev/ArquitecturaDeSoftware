@@ -18,7 +18,7 @@ public class PeticionOrdenCompraServicio implements IPeticionOrdenCompraServicio
     }
 
     @Override
-    public PeticionOrdenCompraModelo getPeticionOrdenCompra(int id){
+    public Object getPeticionOrdenCompra(int id){
         return miGestorCompras.getPeticionOrdenCompras(id);
     }
 
