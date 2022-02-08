@@ -1,8 +1,9 @@
 package uia.com.apimvcrest.modelo;
 
+
 import java.util.ArrayList;
 
-public class PeticionOrdenCompraModelo {
+public class CotizacionModelo {
     private int id=-1;
     private String name="";
     private String codigo="";
@@ -10,22 +11,25 @@ public class PeticionOrdenCompraModelo {
     private int clasificacionVendedor=-1;
     private double total=0.0;
     private int entrega = -1;
-    private ArrayList<ItemPeticionOrdenCompraModelo> items = new ArrayList();
+    private ArrayList<ItemCotizacionModelo> items = new ArrayList<ItemCotizacionModelo>();
 
-    public PeticionOrdenCompraModelo(int id, String name, String codigo, int vendedor, int clasificacion, double total) {
+    public ArrayList<ItemCotizacionModelo> getItems() {
+        return items;
     }
 
-    public ArrayList<ItemPeticionOrdenCompraModelo> getItems() { return items;}
+    public void setItems(ArrayList<ItemCotizacionModelo> items) {
+        this.items = items;
+    }
 
-    public void setItems(ArrayList<ItemPeticionOrdenCompraModelo> items){ this.items = items;}
-
-    public PeticionOrdenCompraModelo(int id, String name, String codigo, int vendedor, int clasificacionVendedor, double total,int entrega){
-        this.id = id;
+    public CotizacionModelo(int id, String name, String codigo, int vendedor, int clasificacionVendedor, double total, int entrega)
+    {
+        this.id=id;
         this.name = name;
         this.codigo = codigo;
         this.total = total;
         this.entrega = entrega;
     }
+
 
     public int getId() {
         return id;
@@ -34,6 +38,8 @@ public class PeticionOrdenCompraModelo {
     public void setId(int id) {
         this.id = id;
     }
+
+
 
     public String getName() {
         return name;
@@ -51,6 +57,7 @@ public class PeticionOrdenCompraModelo {
         this.codigo = codigo;
     }
 
+
     public int getVendedor() {
         return vendedor;
     }
@@ -66,6 +73,7 @@ public class PeticionOrdenCompraModelo {
     public void setClasificacionVendedor(int clasificacionVendedor) {
         this.clasificacionVendedor = clasificacionVendedor;
     }
+
 
     public double getTotal() {
         return total;
@@ -83,20 +91,33 @@ public class PeticionOrdenCompraModelo {
         this.entrega = entrega;
     }
 
-    public void printpeticion()
+    @Override
+    public String toString() {
+        return "CotizacionModelo{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", codigo='" + codigo + '\'' +
+                ", vendedor=" + vendedor +
+                ", clasificacionVendedor=" + clasificacionVendedor +
+                ", total=" + total +
+                ", entrega=" + entrega +
+                ", items=" + items +
+                '}';
+    }
+
+    public void print()
     {
         System.out.println(
                 " \n\tid:\t"+this.id
-                        +" \n\tname:\t"+this.name
-                        +" \n\tcodigo:\t"+this.codigo
-                        +" \n\tvendedor:\t"+this.vendedor
-                        +" \n\tclasificacionVendedor:\t"+this.clasificacionVendedor
-                        +" \n\ttotal:\t"+this.total+" \n\tentrega:\t"+this.entrega);
+                +" \n\tname:\t"+this.name
+                +" \n\tcodigo:\t"+this.codigo
+                +" \n\tvendedor:\t"+this.vendedor
+                +" \n\tclasificacionVendedor:\t"+this.clasificacionVendedor
+                +" \n\ttotal:\t"+this.total+" \n\tentrega:\t"+this.entrega);
         if(this.getItems() != null)
         {
             for(int i=0; i<this.getItems().size(); i++)
-                this.getItems().get(i).printpeticion();
+                this.getItems().get(i).print();
         }
     }
-
 }

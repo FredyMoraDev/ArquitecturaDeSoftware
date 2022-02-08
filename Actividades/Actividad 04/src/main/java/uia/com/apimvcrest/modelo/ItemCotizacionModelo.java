@@ -1,18 +1,23 @@
 package uia.com.apimvcrest.modelo;
 
-public class ItemPeticionOrdenCompraModelo {
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class ItemCotizacionModelo
+{
 
     private int cantidad=-1;
     private double valorUnitario=0.0;
     private double subtotal=0.0;
     private double total=0.0;
 
-    public ItemPeticionOrdenCompraModelo(int cantidad, double valorUnitario, double subtotal, double total) {
-
+    public ItemCotizacionModelo(int cantidad, double valorUnitario, double subtotal, double total)
+    {
         this.valorUnitario = valorUnitario;
         this.subtotal = subtotal;
         this.total = total;
     }
+
 
     public double getValorUnitario() {
         return valorUnitario;
@@ -38,7 +43,7 @@ public class ItemPeticionOrdenCompraModelo {
         this.total = total;
     }
 
-    public void printpeticion() {
+    public void print() {
         System.out.println(
                 " \n\t\tcantidad:\t" + this.cantidad
                         + " \n\t\tvalorUnitario:\t" + this.valorUnitario

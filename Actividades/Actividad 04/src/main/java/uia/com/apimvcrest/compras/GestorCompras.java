@@ -4,6 +4,8 @@ import java.util.*;
 import java.util.Map.Entry;
 
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -37,7 +39,7 @@ public class GestorCompras {
         
         try {
             mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-			miReporteNS = mapper.readValue(new FileInputStream("C:/Users/Hp/OneDrive - Universidad Iberoamericana A.C. ACAD/IBERO SEMESTRE 4/ARQUITECTURA DE SOFTWARE/MoraFredy/ArquitecturaDeSoftware/ComprasProy/arregloItemsV1.json"), ListaReportesNivelStock.class );
+			miReporteNS = mapper.readValue(new FileInputStream("C:\\Users\\Hp\\OneDrive - Universidad Iberoamericana A.C. ACAD\\IBERO SEMESTRE 4\\ARQUITECTURA DE SOFTWARE\\MoraFredy\\ArquitecturaDeSoftware\\Actividades\\Actividad 04\\arregloItemsV1.json"), ListaReportesNivelStock.class );
             
         }
         catch (JsonParseException e) {
@@ -91,7 +93,7 @@ public class GestorCompras {
                 SolicitudOrdenCompra newSolicitud = new SolicitudOrdenCompra(idCompra, "SOC-" + idCompra, "", "", 0, item.getKey(), soc.getKey());
                 newSolicitud.setItems(soc.getValue());
                 misSolicitudesOC.add(newSolicitud);
-                mapper.writeValue(new File("C:/Users/Hp/OneDrive - Universidad Iberoamericana A.C. ACAD/IBERO SEMESTRE 4/ARQUITECTURA DE SOFTWARE/MoraFredy/ArquitecturaDeSoftware/ComprasProy/SolicitudOrdenCompra-" + newSolicitud.getName() + ".json"), newSolicitud);
+                mapper.writeValue(new File(newSolicitud.getName() + ".json"), newSolicitud);
             }
         }
 
@@ -157,5 +159,71 @@ public class GestorCompras {
         }
 
         return null;
+    }
+
+    public void deleteCotizacion(int id) {
+    }
+
+    public static class Cotizacion extends SolicitudOrdenCompra{
+
+        private double valorUnitario=0.0;
+        private double subtotal=0.0;
+        private double total=0.0;
+        private int entrega = -1;
+
+        @JsonCreator
+        public Cotizacion(@JsonProperty("id")int id, @JsonProperty("name")String name,
+                          @JsonProperty("codigo")String codigo, @JsonProperty("unidad")String unidad,
+                          @JsonProperty("cantidad")int cantidad, @JsonProperty("vendedor")int vendedor, @JsonProperty("clasificacionProveedor")int clasificacionVendedor,
+                          @JsonProperty("valorUnitario")double valorUnitario, @JsonProperty("subtotal")double subtotal, @JsonProperty("total")double total, @JsonProperty("entrega")int entrega)
+        {
+            super(id, name, codigo, unidad, cantidad, vendedor, clasificacionVendedor);
+            this.valorUnitario = valorUnitario;
+            this.subtotal = subtotal;
+            this.total = total;
+            this.entrega = entrega;
+        }
+
+        public Cotizacion(SolicitudOrdenCompra info)
+        {
+            super((PeticionOrdenCompra)info);
+            this.valorUnitario = valorUnitario;
+            this.subtotal = subtotal;
+            this.total = total;
+            this.entrega = entrega;
+            this.setClasificacion(info.getClasificacion());
+        }
+
+        public double getValorUnitario() {
+            return valorUnitario;
+        }
+
+        public void setValorUnitario(double valorUnitario) {
+            this.valorUnitario = valorUnitario;
+        }
+
+        public double getSubtotal() {
+            return subtotal;
+        }
+
+        public void setSubtotal(double subtotal) {
+            this.subtotal = subtotal;
+        }
+
+        public double getTotal() {
+            return total;
+        }
+
+        public void setTotal(double total) {
+            this.total = total;
+        }
+
+        public int getEntrega() {
+            return entrega;
+        }
+
+        public void setEntrega(int entrega) {
+            this.entrega = entrega;
+        }
     }
 }//end KardexListaKClientes
