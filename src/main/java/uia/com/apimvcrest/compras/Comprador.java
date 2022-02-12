@@ -205,7 +205,7 @@ public class Comprador {
 
         for (Map.Entry<Integer, Cotizacion> nodo : this.cotizacionesVendedoresSeleccionados.entrySet())
         {
-            mapper.writeValue(new File("C:/TSU-2022/ComprasProy/" + nodo.getValue().getName() + "-vendedorSeleccionado-" + nodo.getValue().getVendedor() + ".json"), nodo.getValue());
+            mapper.writeValue(new File( nodo.getValue().getName() + "-vendedorSeleccionado-" + nodo.getValue().getVendedor() + ".json"), nodo.getValue());
         }
 
         return this.cotizacionesVendedoresSeleccionados;

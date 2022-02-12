@@ -10,7 +10,6 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import uia.com.apimvcrest.modelo.CotizacionModelo;
-import uia.com.apimvcrest.modelo.ItemComprasUIAModelo;
 import uia.com.apimvcrest.modelo.ItemCotizacionModelo;
 
 
@@ -88,7 +87,7 @@ public class GestorCompras {
                 SolicitudOrdenCompra newSolicitud = new SolicitudOrdenCompra(idCompra, "SOC-" + idCompra, "", "", 0, item.getKey(), soc.getKey());
                 newSolicitud.setItems(soc.getValue());
                 misSolicitudesOC.add(newSolicitud);
-                mapper.writeValue(new File("C:/TSU-2022/ComprasProy/SolicitudOrdenCompra-" + newSolicitud.getName() + ".json"), newSolicitud);
+                mapper.writeValue(new File( newSolicitud.getName() + ".json"), newSolicitud);
             }
         }
 
@@ -199,6 +198,39 @@ public class GestorCompras {
     }
 
 
-
+    public CotizacionModelo updateCotizacionById(int id, CotizacionModelo cotizacionById) {
+        CotizacionModelo item = null;
+        for (Entry<Integer, Cotizacion> nodo : misCotizacionesOrdenCompra.entrySet())
+        {
+            if (nodo.getValue().getId() == id)
+            {
+                item = new CotizacionModelo(nodo.getValue().getId()
+                        , nodo.getValue().getName()
+                        , nodo.getValue().getCodigo()
+                        , nodo.getValue().getVendedor()
+                        , nodo.getValue().getClasificacion()
+                        , nodo.getValue().getTotal()
+                        , nodo.getValue().getEntrega());
+                if (nodo.getValue().getItems() != null)
+                {
+                    ArrayList<ItemCotizacionModelo> misItemsCotizaciones = new ArrayList<ItemCotizacionModelo>();
+                    for (int j = 0; j < nodo.getValue().getItems().size(); j++) {
+                        //ItemCotizacionModelo(int cantidad, double valorUnitario, double subtotal, double total)
+                        ItemCotizacionModelo nodoItem = new ItemCotizacionModelo(
+                                nodo.getValue().getItems().get(j).getCantidad()
+                                , 0.0
+                                , 0.0
+                                , 0.0);
+                        misItemsCotizaciones.add(nodoItem);
+                    }
+                    item.setItems(misItemsCotizaciones);
+                }
+                misCotizacionesOrdenCompra.remove(nodo.getKey());
+                break;
+            }
+        }
+        return cotizacionById;
+    }
 
 }
+

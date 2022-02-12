@@ -36,4 +36,13 @@ public class CotizacionServicio implements ICotizacionServicio {
         return miGestorCompras.deleteCotizacion(id);
     }
 
+    /*public CotizacionModelo updateCotizacionById(int id, CotizacionModelo cotizacionById)
+    {
+        //return miGestorCompras.updateCotizacionById(id, cotizacionById);
+        return miGestorCompras.updateCotizacionById(id, cotizacionById);
+    }*/
+
+    public CotizacionModelo updateCotizacionById(int id, CotizacionModelo cotizacionById) {
+        return miGestorCompras.updateCotizacionById(id,cotizacionById);
+    }
 }

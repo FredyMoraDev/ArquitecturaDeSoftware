@@ -45,7 +45,7 @@ public class Vendedor{
                                              solicitudOrdenCompra.getVendedor(), solicitudOrdenCompra.getClasificacion(),
                                              total, total, total, 1);
         newCotizacion.setItems(newLista);
-        mapper.writeValue(new File("C:/TSU-2022/ComprasProy/" + newCotizacion.getName() +"-vendedor-"+this.id +".json"), newCotizacion);
+        mapper.writeValue(new File(newCotizacion.getName() +"-vendedor-"+this.id +".json"), newCotizacion);
         return newCotizacion;
     }
 }
