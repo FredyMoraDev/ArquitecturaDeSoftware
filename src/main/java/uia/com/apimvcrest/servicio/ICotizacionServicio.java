@@ -12,4 +12,11 @@ public interface ICotizacionServicio {
     void print();
 
     CotizacionModelo deleteCotizacion(int id);
+    CotizacionModelo updateCotizacionById(int id, CotizacionModelo cotizacionById);
+    /*public CotizacionModelo updateCotizacionById(int id, CotizacionModelo cotizacionById)
+        {
+            //return miGestorCompras.updateCotizacionById(id, cotizacionById);
+            return miGestorCompras.updateCotizacionById(id, cotizacionById);
+        }*/
+
 }

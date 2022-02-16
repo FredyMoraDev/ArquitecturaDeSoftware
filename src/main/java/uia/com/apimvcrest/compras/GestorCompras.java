@@ -229,7 +229,7 @@ public class GestorCompras {
                 break;
             }
         }
-        return cotizacionById;
+        return item;
     }
 
 }

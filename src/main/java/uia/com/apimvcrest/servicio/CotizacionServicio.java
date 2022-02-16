@@ -41,7 +41,7 @@ public class CotizacionServicio implements ICotizacionServicio {
         //return miGestorCompras.updateCotizacionById(id, cotizacionById);
         return miGestorCompras.updateCotizacionById(id, cotizacionById);
     }*/
-
+    @Override
     public CotizacionModelo updateCotizacionById(int id, CotizacionModelo cotizacionById) {
         return miGestorCompras.updateCotizacionById(id,cotizacionById);
     }
