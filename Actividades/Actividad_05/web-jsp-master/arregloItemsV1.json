@@ -1,0 +1,53 @@
+{
+    "name": "proyecto1",
+    "id": 0,
+    "fecha": "2019-06-14",
+    "items": [
+        {
+            "type": "reporteNS",
+            "name": "reporte1",
+            "responsable": "Alfonso",
+            "id": 1000,
+            "fecha": "2019-06-14",
+            "items": [
+                {
+                    "type": "reporteNS",
+                    "name": "Cartucho Tóner",
+                    "descripcion": "Cartucho Tóner",
+                    "existencia": 8,
+                    "existenciaMinima": 10,
+                    "consumo": 5,
+                    "pedidoProveedor": 100
+                },
+                {
+                    "type": "reporteNS",
+                    "name": "Cartucho Tinta",
+                    "descripcion": "Cartucho Tinta",
+                    "existencia": 3,
+                    "existenciaMinima": 5,
+                    "consumo": 3,
+                    "pedidoProveedor": 5,
+                    "items": []
+                },
+                {
+                    "type": "reporteNS",
+                    "descripcion": "CD",
+                    "name": "CD",
+                    "existencia": 400,
+                    "existenciaMinima": 350,
+                    "consumo": 50,
+                    "pedidoProveedor": 200
+                },
+                {
+                    "type": "reporteNS",
+                    "descripcion": "Papel Bond",
+                    "name": "Papel Bond",
+                    "existencia": 70000,
+                    "existenciaMinima": 60000,
+                    "consumo": 58000,
+                    "pedidoProveedor": 50000
+                }
+            ]
+        }
+        ]
+}
