@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ReportesComponenteComponent } from './reportes-componente.component';
+import {FormsModule} from '@angular/forms';
 
 describe('ReportesComponenteComponent', () => {
   let component: ReportesComponenteComponent;

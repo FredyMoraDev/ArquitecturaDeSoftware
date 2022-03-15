@@ -5,6 +5,6 @@ export interface IReporte {
     vendedor: number;
     clasificacionVendedor: number;
     total: number;
-    entregado: number;
+    entrega: number;
 }
 

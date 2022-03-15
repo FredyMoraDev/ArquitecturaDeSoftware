@@ -8,7 +8,7 @@
         <version>2.6.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
+    <groupId>uia.com</groupId>
     <artifactId>api-rest</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>api-rest</name>

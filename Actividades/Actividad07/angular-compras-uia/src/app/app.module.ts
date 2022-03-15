@@ -5,18 +5,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReportesComponenteComponent } from './reportes-componente/reportes-componente.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { ReporteDetalleComponent } from './reporte-detalle/reporte-detalle.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ReportesComponenteComponent,
+    ReporteDetalleComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClient,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],

@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
 import { IReporte } from '../iReporte';
 import { ReportesService } from '../reportes.service';
-import { HttpClient    } from '@angular/common/http';
+import { ReporteDetalleComponent } from '../reporte-detalle/reporte-detalle.component';
 
 @Component({
   selector: 'app-reportes-componente',
@@ -11,16 +10,8 @@ import { HttpClient    } from '@angular/common/http';
 })
 export class ReportesComponenteComponent implements OnInit {
 
+public reporte = { name: "",id: 0}
 
-  public reporte: IReporte = {
-    id: 0,
-    name: "Fredy" ,
-    codigo: "1",
-    vendedor: 2,
-    clasificacionVendedor: 3,
-    total: 4,
-    entregado: 5
-  };
 
   reportes: IReporte[] = [];
 
@@ -38,10 +29,11 @@ export class ReportesComponenteComponent implements OnInit {
     });
   }
 
+
+
   onSelect(reporte: IReporte): void {
     this.selectedReporte = reporte;
   }
-
 
 
 

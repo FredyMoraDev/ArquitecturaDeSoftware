@@ -4,7 +4,6 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { IReporte } from './iReporte';
 import {map, tap, catchError} from 'rxjs/operators';
 import { HttpHeaders } from '@angular/common/http';
-import {Pipe, PipeTransform} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -19,11 +18,12 @@ export class ReportesService {
 
   constructor(private http: HttpClient) { }
 
+
   public getReportes(){
     return this.http.get<IReporte[]>(this.reportesUrl)
     .pipe(
-      tap(_ => console.log('extrayendo catalogos')),
-      catchError(this.handleError<IReporte[]>('loadReportes', []))
+      tap(_ => console.log('extrayendo reportes')),
+      catchError(this.handleError<IReporte[]>('loadReporte', []))
     );
   }
   private handleError<T> (operation = 'operation', result?: T) {

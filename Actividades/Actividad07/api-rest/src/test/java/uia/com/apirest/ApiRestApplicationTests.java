@@ -1,4 +1,4 @@
-package com.example.apirest;
+package uia.com.apirest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
