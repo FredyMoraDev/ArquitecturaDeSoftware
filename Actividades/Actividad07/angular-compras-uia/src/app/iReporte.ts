@@ -1,4 +1,5 @@
 export interface IReporte {
+  type: string;
     id: number;
     name: string;
     codigo: string;

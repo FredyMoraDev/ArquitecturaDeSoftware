@@ -1,11 +1,34 @@
 <h2> Detalles {{reporte.name | uppercase}} </h2>
 <div><span>id: </span>{{reporte.id}}</div>
-
 <ul class="reportes">
     <li *ngFor="let reporte of reportes"
       [class.selected]="reporte === selectedReporte"  (click)="onSelect(reporte)">
       <span class="badge">{{reporte.id}}</span> {{reporte.name}}
     </li>
 </ul>
-
 <app-reporte-detalle [reporte]="selectedReporte"></app-reporte-detalle>
+<h2>Agregar Reporte</h2>
+
+<div>
+  <form apperance="fill">
+    <label>Nombre:</label>
+    <input matInput for = "new-reporte" #reporteName>
+    </form>
+
+
+    <form apperance="fill">
+      <label>Id:</label>
+      <input matInput for = "new-reporte" #reporteId>
+      </form>
+
+
+
+
+      <!-- (click) passes input value to agregar() and then clears the input -->
+      <button class="add-button" (click)=" agregar(reporteName.value, reporteId.value); reporteName.value=''; reporteId.value=''">
+        Agregar un Reporte
+      </button>
+
+
+
+</div>

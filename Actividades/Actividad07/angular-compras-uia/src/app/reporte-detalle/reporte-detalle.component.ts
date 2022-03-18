@@ -10,9 +10,7 @@ export class ReporteDetalleComponent implements OnInit {
 
   @Input() reporte?: IReporte;
 
-  reportes: IReporte[] = [];
-
-  selectReporte?: IReporte;
+  
 
   constructor() { }
 

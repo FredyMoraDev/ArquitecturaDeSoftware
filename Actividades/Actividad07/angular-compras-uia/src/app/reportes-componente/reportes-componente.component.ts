@@ -35,6 +35,22 @@ public reporte = { name: "",id: 0}
     this.selectedReporte = reporte;
   }
 
+  agregar(name:string, id:string): void {
+    name = name.trim();
+
+    var newReporte = <IReporte>{};
+
+    newReporte.id=Number(id);
+    newReporte.name=name;
+    newReporte.type="reporte";
+
+    if(!name){return; }
+    this.datosReportes.agregarReporte(newReporte)
+    .subscribe(reporte => {
+      this.reportes.push(reporte);
+    });
+  }
+
 
 
 }

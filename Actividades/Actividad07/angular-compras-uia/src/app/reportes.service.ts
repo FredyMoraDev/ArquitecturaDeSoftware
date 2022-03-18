@@ -15,6 +15,7 @@ export class ReportesService {
   };
 
   reportesUrl = 'http://localhost:8080/reportes';
+  itemsUrl = 'http://localhost:8080/item-rnsi';
 
   constructor(private http: HttpClient) { }
 
@@ -37,9 +38,8 @@ export class ReportesService {
     };
   }
   /** POST:add a new reporte to the server */
-  agregarReporte(reporte: IReporte): Observable<IReporte> {
-    return this.http.post<IReporte>(this.reportesUrl, reporte, this.httpOptions)
-    .pipe(
+ public agregarReporte(Reporte: IReporte): Observable<IReporte> {
+    return this.http.post<IReporte>(this.itemsUrl, Reporte, this.httpOptions).pipe(
       tap((newReporte: IReporte) => console.log(`added reporte w/ id=${newReporte.id}`)),
       catchError(this.handleError<IReporte>('agregarReporte'))
     );
