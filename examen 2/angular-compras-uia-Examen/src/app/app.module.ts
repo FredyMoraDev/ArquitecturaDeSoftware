@@ -11,13 +11,15 @@ import { ReportesService } from './reportes.service';
 import { PeticionComprasComponent } from './peticion-compras/peticion-compras.component';
 import { SolicitudCompraComponent } from './solicitud-compra/solicitud-compra.component';
 import { SolicitudService } from './solicitud.service';
+import { CotizacionDetalleComponent } from './cotizacion-detalle/cotizacion-detalle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ReportesComponenteComponent,
     ReporteDetalleComponent,
-    SolicitudCompraComponent
+    SolicitudCompraComponent,
+    CotizacionDetalleComponent
   ],
   imports: [
     BrowserModule,

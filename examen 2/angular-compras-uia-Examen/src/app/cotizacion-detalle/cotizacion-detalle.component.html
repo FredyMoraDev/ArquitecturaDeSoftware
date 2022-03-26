@@ -1,0 +1,7 @@
+<ul class="cotizacion">
+  <li *ngFor="let cotizacion of cotizaciones"
+  [class.selected]="cotizacion.id === reporte.name"  (click)="onSelect(cotizacion)">
+  <span class="badge">{{cotizacion.id}}</span> {{cotizacion.name}}
+  </li>
+</ul>
+
