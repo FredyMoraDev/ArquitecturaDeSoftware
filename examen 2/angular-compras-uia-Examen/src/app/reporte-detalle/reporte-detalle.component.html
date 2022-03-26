@@ -1,0 +1,15 @@
+
+<div *ngIf="reporte">  
+    <h2>Edición de {{reporte.name | uppercase}}</h2>
+    <div><span>id: </span>{{reporte.id}}</div>
+
+    <form appearance="fill">
+      <label>Nombre del Reporte:</label>
+      <input matInput id="reporte-name" [(ngModel)]="reporte.name" placeholder="name">
+    </form>
+
+    <div>
+      <label for="reporte-id">Id Reporte: </label>
+      <input id="reporte-id" [(ngModel)]="reporte.id" placeholder="id">
+    </div>   
+</div>

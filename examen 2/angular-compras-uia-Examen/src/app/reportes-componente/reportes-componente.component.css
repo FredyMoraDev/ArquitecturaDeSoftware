@@ -1,0 +1,52 @@
+/* HeroesComponent's private CSS styles */
+.reportes {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 15em;
+  }
+  .reportes li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    background-color: rgb(14, 231, 6);
+    margin: .5em;
+    padding: .3em 0;
+    height: 1.6em;
+    border-radius: 4px;
+  }
+  .reportes li:hover {
+    color: #2c3a41;
+    background-color: #0c0000;
+    left: .1em;
+  }
+  .reportes li.selected {
+    background-color: rgb(114, 6, 6);
+    color: white;
+  }
+  .reportes li.selected:hover {
+    background-color: #d60909;
+    color: white;
+  }
+  .reportes li.selected:active {
+    background-color: rgb(133, 5, 5);
+    color: white;
+  }
+  .reportes .badge {
+    display: inline-block;
+    font-size: small;
+    color: white;
+    padding: 0.8em 0.7em 0 0.7em;
+    background-color:#750615;
+    line-height: 1em;
+    position: relative;
+    left: -1px;
+    top: -4px;
+    height: 1.8em;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+  }
+
+  input {
+    padding: .5rem;
+  }

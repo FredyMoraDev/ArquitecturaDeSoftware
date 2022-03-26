@@ -1,0 +1,33 @@
+<ul class="peticions">
+    <li *ngFor="let peticion of peticiones"
+    [class.selected]="peticion === selectedPeticion"  (click)="onSelect(peticion)">
+    <span class="badge">{{peticion.id}}</span> {{peticion.name}}
+    </li>
+</ul>
+
+<!--<app-peticion-detalle [peticion]="selectedPeticion"></app-peticion-detalle> -->
+
+<h2>Agregar Peticion</h2>
+
+<div>
+    <form appearance="fill">
+      <label>Nombre</label>
+      <input Input for="new-peticion" #peticionName>
+    </form>
+
+
+    <form appearance="fill">
+      <label>Id:</label>
+      <input Input for="new-peticion" #peticionId>
+    </form>
+
+
+
+
+   <!-- (click) passes input value to agregar() and then clears the input -->
+   <button class="add-button" (click)="agregar(peticionName.value, peticionId.value ); peticionName.value=''; peticionId.value=''  " >
+    Agregue un peticion
+  </button>
+
+
+</div>

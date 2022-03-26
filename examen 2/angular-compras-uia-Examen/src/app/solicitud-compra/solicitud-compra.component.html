@@ -1,0 +1,6 @@
+<ul class="solicitudes">
+    <li *ngFor="let solicitud of solicitudes"
+    [class.selected]="solicitud.id === reporte.name"  (click)="onSelect(solicitud)">
+    <span class="badge">{{solicitud.id}}</span> {{solicitud.name}}
+    </li>
+</ul>
