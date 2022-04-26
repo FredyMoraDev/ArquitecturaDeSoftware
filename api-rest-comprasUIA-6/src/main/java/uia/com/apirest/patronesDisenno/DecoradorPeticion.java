@@ -1,21 +1,23 @@
 package uia.com.apirest.patronesDisenno;
 
 import uia.com.apirest.compras.InfoComprasUIA;
-import uia.com.apirest.compras.PeticionOrdenCompra;
+import uia.com.apirest.compras.ListaInfoComprasUIA;
 
 import java.util.List;
 
-public class DecoradorSolicitudOC extends PeticionOrdenCompra implements IListaInfoComprasUIA {
+public class DecoradorPeticion extends InfoComprasUIA implements IListaInfoComprasUIA {
+
     protected  ReporteNivelStockConcreto reporte;
 
-    public DecoradorSolicitudOC(ReporteNivelStockConcreto SolicitudOrdenCompra)
+    public DecoradorPeticion(ReporteNivelStockConcreto miReporteNS)
     {
-        this.reporte=SolicitudOrdenCompra;
+        this.reporte=miReporteNS;
         this.setItems(this.reporte.agregaItems());
     }
 
     @Override
-    public List<InfoComprasUIA> getItems(){
+    public List<InfoComprasUIA> getItems()
+    {
         return super.getItems();
     }
 
