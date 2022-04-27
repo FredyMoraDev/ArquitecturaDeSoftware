@@ -24,7 +24,6 @@ import java.util.Map.Entry;
  * @version 1.0
  * @created 12-nov.-2019 11:27:37 a. m.
  */
-
 @Repository
 public class GestorCompras {
 
@@ -36,7 +35,7 @@ public class GestorCompras {
     private Comprador miComprador = new Comprador();
     private ArrayList<SolicitudOrdenCompra> misSolicitudesOC;
     HashMap<Integer, ArrayList<Cotizacion>> misSolicitudesCotizacion;
-    //HashMap<Integer, ArrayList<InfoComprasUIA>> misSolicitudesOC;
+    //HashMap<Integer, ArrayList<InfoComprasUIA>> missSolicitudesOC;
     HashMap<Integer, Cotizacion> misCotizacionesOrdenCompra;
     ArrayList<CotizacionModelo> miModeloCotizaciones;
     ArrayList<ReporteModelo> miModeloReportes;
@@ -103,6 +102,10 @@ public class GestorCompras {
 
     public HashMap<Integer, Cotizacion> getMisCotizacionesOrdenCompra() {
         return misCotizacionesOrdenCompra;
+    }
+
+    public ArrayList<SolicitudOrdenCompra> getMisSolicitudesOrdenCompra() {
+        return misSolicitudesOC;
     }
 
     public void setMisCotizacionesOrdenCompra(HashMap<Integer, Cotizacion> misCotizacionesOrdenCompra) {

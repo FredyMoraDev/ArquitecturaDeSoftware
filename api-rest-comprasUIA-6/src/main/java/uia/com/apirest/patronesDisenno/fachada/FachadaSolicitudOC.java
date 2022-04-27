@@ -15,12 +15,7 @@ public class FachadaSolicitudOC extends FachadaModel {
     }
     @Override
     public ArrayList<ItemComprasUIAModelo> getItems(int id) {
-        System.out.println("FachadaSolicitudOC");
-
-        return null;
-    }
-    @Override
-    public ArrayList<ItemSolicitudOCModelo> getSolicitudesOC(int id){
         return this.itemsSolicitud(id);
     }
+
 }

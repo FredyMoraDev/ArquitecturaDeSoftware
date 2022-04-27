@@ -17,14 +17,16 @@ public abstract class FachadaModel implements IFachada {
 
     private HashMap<Integer, Cotizacion> misCotizaciones;
     private ArrayList<ItemComprasUIAModelo> miModeloCotizaciones = new ArrayList<ItemComprasUIAModelo>();
-    private ArrayList<SolicitudOCModelo> misSolicitudesOC;
-    private  ArrayList<ItemSolicitudOCModelo> miModeloSolicitudesOC =new ArrayList<>();
+
+    private ArrayList<SolicitudOrdenCompra> misSolicitudes;
+    private ArrayList<ItemComprasUIAModelo> miModeloSolicitudes = new ArrayList<ItemComprasUIAModelo>();
 
     @Autowired
     public FachadaModel(GestorCompras gestorCompras)
     {
         this.miGestorCompras = gestorCompras;
         misCotizaciones = this.miGestorCompras.getMisCotizacionesOrdenCompra();
+        misSolicitudes = this.miGestorCompras.getMisSolicitudesOrdenCompra();
     }
 
 
@@ -63,13 +65,13 @@ public abstract class FachadaModel implements IFachada {
 
     }
 
-    public ArrayList<ItemSolicitudOCModelo> itemsSolicitud(int id) {
-
-        for (int i = 0; i < misSolicitudesOC.size(); i++) {
-            SolicitudOCModelo nodoSolicitud = misSolicitudesOC.get(i);
+    public ArrayList<ItemComprasUIAModelo> itemsSolicitud(int id)
+    {
+        for(int i=0; i<misSolicitudes.size(); i++) {
+            InfoComprasUIA nodoSolicitud = misSolicitudes.get(i);
             if (nodoSolicitud != null) {
                 for (int j = 0; j < nodoSolicitud.getItems().size(); j++) {
-                    //ItemCotizacionModelo(int cantidad, double valorUnitario, double subtotal, double total)
+                    //ItemSolicitudOCModelo(int cantidad, double valorUnitario, double subtotal, double total)
                     ItemSolicitudOCModelo nodo = new ItemSolicitudOCModelo(
                             nodoSolicitud.getItems().get(j).getCantidad()
                             , nodoSolicitud.getItems().get(j).getName()
@@ -82,26 +84,13 @@ public abstract class FachadaModel implements IFachada {
                             , nodoSolicitud.getItems().get(j).getPedidoProveedor()
                             , nodoSolicitud.getItems().get(j).getPadre()
                     );
-                    if(nodo.getId()==id)
-                        miModeloSolicitudesOC.add(nodo);
+                    if (nodo.getId() == id)
+                        miModeloSolicitudes.add(nodo);
                 }
             }
         }
-
-        return this.miModeloSolicitudesOC;
+        return miModeloSolicitudes;
     }
-
-    public SolicitudOCModelo itemsSolicituds(int id) {
-        if (this.miModeloSolicitudesOC == null)
-            this.itemsSolicitud(id);
-        for (int i = 0; i < this.miModeloSolicitudesOC.size(); i++) {
-            if (this.miModeloSolicitudesOC.get(i).getId() == id)
-                return this.misSolicitudesOC.get(i);
-        }
-
-        return null;
-    }
-
 
     public ArrayList<ItemComprasUIAModelo> itemsReporte()
     {

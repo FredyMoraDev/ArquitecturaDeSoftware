@@ -19,8 +19,5 @@ public class FachadaCotizaciones extends FachadaModel {
     public ArrayList<ItemComprasUIAModelo> getItems(int id) {
         return this.itemsCotizacion(id);
     }
-    @Override
-    public ArrayList<ItemSolicitudOCModelo> getSolicitudesOC(int id) {
-        return null;
-    }
+
 }

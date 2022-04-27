@@ -8,5 +8,4 @@ import java.util.ArrayList;
 
 public interface IFachada {
     ArrayList<ItemComprasUIAModelo> getItems(int id);
-    ArrayList<ItemSolicitudOCModelo> getSolicitudesOC(int id);
-}
+    }
