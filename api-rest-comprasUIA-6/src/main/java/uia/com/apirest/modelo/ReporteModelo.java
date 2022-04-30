@@ -3,7 +3,7 @@ package uia.com.apirest.modelo;
 
 import java.util.ArrayList;
 
-public class ReporteModelo {
+public class ReporteModelo extends ItemComprasUIAModelo{
     private int id=-1;
     private String name="";
     private String codigo="";

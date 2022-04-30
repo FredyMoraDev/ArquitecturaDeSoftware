@@ -107,6 +107,9 @@ public class GestorCompras {
     public ArrayList<SolicitudOrdenCompra> getMisSolicitudesOrdenCompra() {
         return misSolicitudesOC;
     }
+    public ReporteNivelStockConcreto getMisReportesNivelStock() {
+        return miReporteNS;
+    }
 
     public void setMisCotizacionesOrdenCompra(HashMap<Integer, Cotizacion> misCotizacionesOrdenCompra) {
         this.misCotizacionesOrdenCompra = misCotizacionesOrdenCompra;

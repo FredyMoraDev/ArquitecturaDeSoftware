@@ -2,11 +2,9 @@ package uia.com.apirest.patronesDisenno.fachada;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uia.com.apirest.compras.Cotizacion;
-import uia.com.apirest.compras.GestorCompras;
-import uia.com.apirest.compras.InfoComprasUIA;
-import uia.com.apirest.compras.SolicitudOrdenCompra;
+import uia.com.apirest.compras.*;
 import uia.com.apirest.modelo.*;
+import uia.com.apirest.patronesDisenno.ReporteNivelStockConcreto;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,12 +19,15 @@ public abstract class FachadaModel implements IFachada {
     private ArrayList<SolicitudOrdenCompra> misSolicitudes;
     private ArrayList<ItemComprasUIAModelo> miModeloSolicitudes = new ArrayList<ItemComprasUIAModelo>();
 
+    private ReporteNivelStockConcreto misReportes;
+    private ArrayList<ReporteModelo> miModeloReportes = new ArrayList<ReporteModelo>();
     @Autowired
     public FachadaModel(GestorCompras gestorCompras)
     {
         this.miGestorCompras = gestorCompras;
         misCotizaciones = this.miGestorCompras.getMisCotizacionesOrdenCompra();
         misSolicitudes = this.miGestorCompras.getMisSolicitudesOrdenCompra();
+        misReportes = this.miGestorCompras.getMisReportesNivelStock();
     }
 
 
@@ -92,8 +93,59 @@ public abstract class FachadaModel implements IFachada {
         return miModeloSolicitudes;
     }
 
-    public ArrayList<ItemComprasUIAModelo> itemsReporte()
+    public ArrayList<ReporteModelo> itemsReporte()
     {
-        return null; //this.reporte.getItems();
+        for (int i = 0; i < misReportes.getItems().size(); i++) {
+            //    public ReporteModelo(int id, String name, String codigo, int vendedor, int clasificacion, int existenciaMinima, int existencia, int consumo)
+            ReporteModelo nodo = new ReporteModelo(
+                    misReportes.getItems().get(i).getId()
+                    , misReportes.getItems().get(i).getName()
+                    , misReportes.getItems().get(i).getCodigo()
+                    , misReportes.getItems().get(i).getVendedor()
+                    , misReportes.getItems().get(i).getClasificacion()
+                    , misReportes.getItems().get(i).getExistenciaMinima()
+                    , misReportes.getItems().get(i).getExistencia()
+                    , misReportes.getItems().get(i).getConsumo()
+            );
+            miModeloReportes.add(nodo);
+            System.out.println(nodo.getId());
+        }
+
+        return miModeloReportes;
+
     }
-}
+
+    }
+
+    /*public ArrayList<ItemComprasUIAModelo> itemsReporte(int id)
+    {
+        for(int i=0; i < misReportes .size(); i++) {
+            ItemComprasUIAModelo item = new ReporteModelo(misReportes.get(i).getId()
+                    , misReportes.get(i).getName()
+                    , misReportes.get(i).getCodigo()
+                    , misReportes.get(i).getVendedor()
+                    , misReportes.get(i).getClasificacion()
+                    , misReportes.get(i).getExistenciaMinima()
+                    , misReportes.get(i).getExistencia()
+                    , misReportes.get(i).getConsumo());
+            if(misReportes.get(i).getItems() !=null) {
+                ItemReporteModelo nodo = new ItemReporteModelo(
+                        misReportes.get(i).getItems().get(0).getCantidad()
+                        , misReportes.get(i).getItems().get(0).getName()
+                        , misReportes.get(i).getItems().get(0).getClasificacion()
+                        , misReportes.get(i).getItems().get(0).getId()
+                        , misReportes.get(i).getItems().get(0).getCodigo()
+                        , misReportes.get(i).getItems().get(0).getExistenciaMinima()
+                        , misReportes.get(i).getItems().get(0).getExistencia()
+                        , misReportes.get(i).getItems().get(0).getConsumo()
+                        , misReportes.get(i).getItems().get(0).getPedidoProveedor()
+                );
+                if (nodo.getId() == id)
+                    miModeloReportes.add(item);
+            }
+        }
+        return miModeloReportes;
+
+
+
+    }*/

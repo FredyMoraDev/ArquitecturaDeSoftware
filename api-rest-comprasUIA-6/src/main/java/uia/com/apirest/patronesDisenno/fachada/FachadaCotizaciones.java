@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 import uia.com.apirest.compras.GestorCompras;
 import uia.com.apirest.modelo.ItemComprasUIAModelo;
 import uia.com.apirest.modelo.ItemSolicitudOCModelo;
+import uia.com.apirest.modelo.ReporteModelo;
 import uia.com.apirest.patronesDisenno.fachada.FachadaModel;
 
 import java.util.ArrayList;
@@ -20,4 +21,8 @@ public class FachadaCotizaciones extends FachadaModel {
         return this.itemsCotizacion(id);
     }
 
+    @Override
+    public ArrayList<ReporteModelo> getItems() {
+        return null;
+    }
 }
